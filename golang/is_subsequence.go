@@ -30,8 +30,6 @@ func isSubsequence(s string, t string) bool {
 	for _, r := range s {
 		if v, ok := position[r]; ok {
 			tmp := minOfValue(v, min)
-			fmt.Println(v)
-			fmt.Println(tmp, min)
 			if tmp < min {
 				return false
 			}
@@ -42,6 +40,24 @@ func isSubsequence(s string, t string) bool {
 	}
 	return true
 }
+
+//
+func isSubsequence1(s string, t string) bool {
+	var i, j int
+	for i < len(s) && j < len(t) {
+		if s[i] == t[j] {
+			i++
+			j++
+		} else {
+			j++
+		}
+	}
+	if i == len(s) {
+		return true
+	}
+	return false
+}
+
 func main() {
 	s := "acb"
 	t := "ahbgdc"
