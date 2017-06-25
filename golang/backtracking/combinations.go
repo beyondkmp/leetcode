@@ -2,24 +2,28 @@ package main
 
 import "fmt"
 
-func combine_r(nums []int, pos int, start int, n int, k int) [][]int {
+func combine(n int, k int) [][]int {
+	nums := make([]int, k)
 	var results [][]int
-	if pos == k {
-		tmp := make([]int, k)
-		copy(tmp, nums)
-		return [][]int{tmp}
-	} else {
+	var visitAll func(pos int, start int)
+
+	visitAll = func(pos int, start int) {
+		if pos == k {
+			tmp := make([]int, k)
+			for j := 0; j < k; j++ {
+				tmp[j] = nums[j]
+			}
+			results = append(results, tmp)
+			return
+		}
 		for i := start; i <= n; i++ {
 			nums[pos] = i
-			results = append(results, combine_r(nums, pos+1, i+1, n, k)...)
+			visitAll(pos+1, i+1)
 		}
 	}
-	return results
-}
 
-func combine(n int, k int) [][]int {
-	nums := make([]int, 3)
-	return combine_r(nums, 0, 1, n, k)
+	visitAll(0, 1)
+	return results
 }
 func main() {
 	fmt.Println(combine(5, 3))
