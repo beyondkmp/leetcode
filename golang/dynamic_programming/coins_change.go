@@ -5,7 +5,30 @@ import (
 	"math"
 )
 
+//非递归版本
 func coinChange(coins []int, amount int) int {
+	values := make([]int, amount+1)
+	for i := 1; i <= amount; i++ {
+		min := math.MaxInt32
+		for _, v := range coins {
+			res := i - v
+			if res >= 0 && values[res] >= 0 && values[res] < min {
+				min = values[res] + 1
+
+			}
+
+		}
+		if min == math.MaxInt32 {
+			min = -1
+
+		}
+		values[i] = min
+
+	}
+	return values[amount]
+}
+
+func coinChangeR(coins []int, amount int) int {
 	var visitAll func(amount int) int
 	flag := make(map[int]int)
 
