@@ -48,3 +48,25 @@ class Solution(object):
                     s = stack_strs.pop()
                 stack_strs.append(n * result)
         return ''.join(stack_strs) + strs
+
+class Solution2(object):
+    def decodeString(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        nums = ''
+        stack = []
+        stack.append(['',1])
+        for ch in s:
+            if ch.isdigit():
+                nums += ch
+            elif ch == '[':
+                stack.append(['',int(nums)])
+                nums = ''
+            elif ch == ']':
+                strs, k = stack.pop()
+                stack[-1][0] += strs * k
+            else:
+                stack[-1][0] += ch
+        return stack[0][0]
