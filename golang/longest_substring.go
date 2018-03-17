@@ -2,24 +2,25 @@ package main
 
 import "fmt"
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 func lengthOfLongestSubstring(s string) int {
-	dic := make(map[rune]int)
-	firstNotRepeat := 0
-	max := 0
-	for i, v := range s {
-		if n, ok := dic[v]; ok && n > firstNotRepeat {
-			tmp := i - n
-			if tmp > max {
-				max = tmp
+	alphaMap := make(map[rune]int)
+	var start, lengest int
+	for i, w := range s {
+		if v, ok := alphaMap[w]; ok {
+			lengest = max(lengest, i-start)
+			if start <= v {
+				start = v + 1
 			}
-			firstNotRepeat = n + 1
 		}
-		dic[v] = i
+		alphaMap[w] = i
 	}
-	if len(s)-firstNotRepeat > max {
-		max = len(s) - firstNotRepeat
-	}
-	return max
+	return max(lengest, len(s)-start)
 }
 
 func main() {
