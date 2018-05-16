@@ -8,19 +8,19 @@ func max(a, b int) int {
 	}
 	return b
 }
+
 func lengthOfLongestSubstring(s string) int {
 	alphaMap := make(map[rune]int)
-	var start, lengest int
+	var firstNotRepeat, length int
+	firstNotRepeat = -1
 	for i, w := range s {
-		if v, ok := alphaMap[w]; ok {
-			lengest = max(lengest, i-start)
-			if start <= v {
-				start = v + 1
-			}
+		if alphaMap[w] > firstNotRepeat {
+			firstNotRepeat = alphaMap[w]
 		}
 		alphaMap[w] = i
+		length = max(length, i-firstNotRepeat)
 	}
-	return max(lengest, len(s)-start)
+	return length
 }
 
 func main() {
