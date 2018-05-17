@@ -6,6 +6,10 @@ import (
 )
 
 func restoreIpAddresses(s string) []string {
+	if len(s) < 4 || len(s) > 12 {
+		return []string{}
+	}
+
 	var res []string
 	var dfs func(sub string, index int, res_ip string)
 
