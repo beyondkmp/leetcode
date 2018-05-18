@@ -49,4 +49,6 @@ func restoreIpAddresses(s string) []string {
 func main() {
 	fmt.Println(restoreIpAddresses("25525511135"))
 	fmt.Println(restoreIpAddresses("192168011"))
+	// [255.255.11.135 255.255.111.35]
+	// [19.216.80.11 192.16.80.11 192.168.0.11]
 }
