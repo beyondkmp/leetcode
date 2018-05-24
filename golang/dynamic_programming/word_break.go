@@ -19,4 +19,8 @@ func main() {
 	s := "applepenapple"
 	wordDict := []string{"apple", "pen"}
 	fmt.Println(wordBreak(s, wordDict))
+
+	s = "aaaaaaa"
+	wordDict = []string{"aaaa", "aaa"}
+	fmt.Println(wordBreak(s, wordDict))
 }
