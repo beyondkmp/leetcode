@@ -3,26 +3,35 @@ package main
 import "fmt"
 
 func findNumberOfLIS(nums []int) int {
-	longest := make([]int, len(nums))
-	for i := 1; i < len(nums); i++ {
-		if nums[i] > nums[i-1] {
-			longest[i] = longest[i-1] + 1
-		} else {
-			longest[i] = longest[i-1]
+	cnt := make([]int, len(nums))
+	lengest := make([]int, len(nums))
+	var result, maxLen int
+
+	for i := 0; i < len(nums); i++ {
+		cnt[i], lengest[i] = 1, 1
+		for j := i; j >= 0; j-- {
+			if nums[i] > nums[j] {
+				if lengest[i] == lengest[j]+1 {
+					cnt[i] += cnt[j]
+				}
+				if lengest[i] < lengest[j]+1 {
+					cnt[i] = cnt[j]
+					lengest[i] = lengest[j] + 1
+				}
+			}
 		}
-	}
-	var result int
-	for i := len(nums) - 1; i >= 0; i-- {
-		if longest[i] == longest[i-1] {
-			result++
-		} else {
-			break
+		if maxLen == lengest[i] {
+			result += cnt[i]
+		}
+		if maxLen < lengest[i] {
+			maxLen = lengest[i]
+			result = cnt[i]
 		}
 	}
 	return result
 }
 
 func main() {
-	a := []int{1, 2, 5, 4, 7}
+	a := []int{1, 2, 4, 3, 5, 4, 7, 2}
 	fmt.Println(findNumberOfLIS(a))
 }
