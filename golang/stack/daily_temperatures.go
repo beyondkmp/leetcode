@@ -24,22 +24,17 @@ func (s *stack) Pop() int {
 
 func dailyTemperatures(temperatures []int) []int {
 	result := make([]int, len(temperatures))
-
 	var st stack
 
 	for i, v := range temperatures {
-		if st.Empty() {
-			st.Put(i)
-			continue
-		}
-
 		for !st.Empty() {
-			if v > temperatures[st.Peek()] {
-				result[st.Peek()] = i - st.Peek()
-				st.Pop()
-			} else {
+			peek := st.Peek()
+			if v <= temperatures[peek] {
 				break
 			}
+
+			result[peek] = i - peek
+			st.Pop()
 		}
 		st.Put(i)
 	}
