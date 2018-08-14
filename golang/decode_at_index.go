@@ -4,11 +4,26 @@ import (
 	"fmt"
 )
 
+func isDigit(w byte) bool {
+	if w >= '1' && w <= '9' {
+		return true
+	}
+	return false
+}
+
+func isAlpha(w byte) bool {
+	if w >= 'a' && w <= 'z' {
+		return true
+	}
+	return false
+}
+
 func decodeAtIndex(S string, K int) string {
 	var size int
 
-	for _, w := range S {
-		if w >= '2' && w <= '9' {
+	for i := range S {
+		w := S[i]
+		if isDigit(w) {
 			size *= int(w - '0')
 		} else {
 			size++
@@ -18,11 +33,11 @@ func decodeAtIndex(S string, K int) string {
 	for i := len(S) - 1; i >= 0; i-- {
 		w := S[i]
 
-		if K %= size; K == 0 && w >= 'a' && w <= 'z' {
+		if K %= size; K == 0 && isAlpha(w) {
 			return S[i : i+1]
 		}
 
-		if w >= '2' && w <= '9' {
+		if isDigit(w) {
 			size /= int(w - '0')
 		} else {
 			size--
