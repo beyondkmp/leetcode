@@ -2,37 +2,33 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
 func decodeAtIndex(S string, K int) string {
-	if K == 1 {
-		return S[0:1]
-	}
-	var word []rune
-	var result string
+	var size int
 
 	for _, w := range S {
 		if w >= '2' && w <= '9' {
-			if word == nil {
-				word = []rune(result)
-			} else {
-				result += (string(word))
-			}
-			result = strings.Repeat(result, int(w-'0'))
-			if len(result) >= K {
-				return result[K-1 : K]
-			}
-			word = nil
+			size *= int(w - '0')
 		} else {
-			word = append(word, w)
+			size++
 		}
 	}
 
-	if word != nil {
-		result += string(word)
+	for i := len(S) - 1; i >= 0; i-- {
+		w := S[i]
+
+		if K %= size; K == 0 && w >= 'a' && w <= 'z' {
+			return S[i : i+1]
+		}
+
+		if w >= '2' && w <= '9' {
+			size /= int(w - '0')
+		} else {
+			size--
+		}
 	}
-	return result[K-1 : K]
+	return S[0:1]
 }
 
 func main() {
