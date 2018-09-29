@@ -14,16 +14,12 @@ func coinChange(coins []int, amount int) int {
 			res := i - v
 			if res >= 0 && values[res] >= 0 && values[res] < min {
 				min = values[res] + 1
-
 			}
-
 		}
 		if min == math.MaxInt32 {
 			min = -1
-
 		}
 		values[i] = min
-
 	}
 	return values[amount]
 }
