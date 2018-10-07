@@ -1,7 +1,9 @@
 object Solution {
   def largestNumber(nums: Array[Int]): String = {
     val s =
-      nums.sortWith((a, b) => a.toString + b.toString > b.toString + a.toString)
+      nums.sortWith(
+        (a, b) => a.toString + b.toString > b.toString + a.toString
+      )
     if (s(0) == 0) "0" else s.mkString
   }
 
