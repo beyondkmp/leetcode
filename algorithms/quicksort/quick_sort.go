@@ -10,24 +10,15 @@ func less(a, b int) bool {
 }
 
 func partition(a []int, l, r int) int {
-	i := l
-	j := r + 1
+	i := l + 1
+	j := r
 	v := a[l]
 
 	for {
-
-		for {
-			i++
-			if !less(a[i], v) || i == r {
-				break
-			}
+		for ; i <= r && less(a[i], v); i++ {
 		}
 
-		for {
-			j--
-			if !less(v, a[j]) || j == l {
-				break
-			}
+		for ; j >= l && less(v, a[j]); j-- {
 		}
 
 		if i >= j {
@@ -35,7 +26,10 @@ func partition(a []int, l, r int) int {
 		}
 
 		a[i], a[j] = a[j], a[i]
+		i++
+		j--
 	}
+
 	a[j], a[l] = a[l], a[j]
 	return j
 }
@@ -46,15 +40,24 @@ func quicksort(a []int, l, r int) {
 	}
 
 	i := partition(a, l, r)
-	fmt.Println(i)
-	fmt.Println(a)
 	quicksort(a, l, i-1)
 	quicksort(a, i+1, r)
 }
 
 func main() {
-	a := []int{1, 4, 5, 2, 3, 9}
+	a := []int{1, 7, 2, 4, 5, 9, 8, 2, 6, 3, 9}
 	quicksort(a, 0, len(a)-1)
-	// fmt.Println(partition(a, 0, len(a)-1))
+	fmt.Println(a)
+
+	a = []int{1, 2, 2, 2, 2, 2}
+	quicksort(a, 0, len(a)-1)
+	fmt.Println(a)
+
+	a = []int{1, 2, 3, 4, 5, 6}
+	quicksort(a, 0, len(a)-1)
+	fmt.Println(a)
+
+	a = []int{1, 1}
+	quicksort(a, 0, len(a)-1)
 	fmt.Println(a)
 }
