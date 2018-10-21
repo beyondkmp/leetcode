@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 func less(a, b int) bool {
 	if a < b {
@@ -39,6 +43,7 @@ func findKthLargest(nums []int, k int) int {
 	l := 0
 	r := len(nums) - 1
 
+	shuffle(nums)
 	for l <= r {
 		i := partition(nums, l, r)
 		switch {
@@ -51,6 +56,14 @@ func findKthLargest(nums []int, k int) int {
 		}
 	}
 	return nums[l]
+}
+
+func shuffle(nums []int) {
+	r := rand.New(rand.NewSource(time.Now().Unix()))
+	for n := len(nums); n > 0; n-- {
+		randIndex := r.Intn(n)
+		nums[n-1], nums[randIndex] = nums[randIndex], nums[n-1]
+	}
 }
 
 func main() {
