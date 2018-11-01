@@ -32,4 +32,5 @@ func simplifyPath(path string) string {
 func main() {
 	fmt.Println(simplifyPath("/a/./b/../../c/"))
 	fmt.Println(simplifyPath("/..."))
+	fmt.Println(simplifyPath("/../"))
 }
