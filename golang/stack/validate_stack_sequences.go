@@ -27,7 +27,7 @@ func validateStackSequences(pushed []int, popped []int) bool {
 	var p int
 	for _, v := range pushed {
 		st.Put(v)
-		for !st.Empty() && p < len(popped) && st.Peek() == popped[p] {
+		for !st.Empty() && st.Peek() == popped[p] {
 			st.Pop()
 			p++
 		}
