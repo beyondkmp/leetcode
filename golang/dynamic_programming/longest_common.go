@@ -9,7 +9,7 @@ func max(a, b int) int {
 	return b
 }
 
-func longestCommon(a, b string) int {
+func longestCommon(a, b string) string {
 	m := len(a)
 	n := len(b)
 	dp := make([][]int, m+1)
@@ -46,9 +46,7 @@ func longestCommon(a, b string) int {
 		}
 	}
 
-	fmt.Println(string(result))
-
-	return dp[m][n]
+	return string(result)
 }
 
 func main() {
