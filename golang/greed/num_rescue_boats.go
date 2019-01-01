@@ -36,6 +36,22 @@ func numRescueBoats(people []int, limit int) int {
 	return result
 }
 
+func numRescueBoats2(people []int, limit int) int {
+	result := 0
+	high := len(people) - 1
+	low := 0
+
+	sort.Sort(sort.IntSlice(people))
+	for high >= low {
+		if people[high]+people[low] <= limit {
+			low++
+		}
+		high--
+		result++
+	}
+	return result
+}
+
 func main() {
 	people := []int{3, 5, 3, 4}
 	limit := 5
