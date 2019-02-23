@@ -9,6 +9,30 @@ func less(a, b int) bool {
 	return false
 }
 
+func partition2(a []int, l, r int) int {
+	i, j := l, r-1
+	v := a[r]
+
+	for {
+		for i < r && a[i] <= v {
+			i++
+		}
+		for j >= l && a[j] >= v {
+			j--
+		}
+
+		if i > j {
+			break
+		}
+		a[i], a[j] = a[j], a[i]
+		i++
+		j++
+	}
+
+	a[i], a[r] = a[r], a[i]
+	return i
+}
+
 func partition(a []int, l, r int) int {
 	i, j := l, r+1
 	v := a[l]
@@ -47,7 +71,7 @@ func quicksort(a []int, l, r int) {
 		return
 	}
 
-	i := partition1(a, l, r)
+	i := partition2(a, l, r)
 	quicksort(a, l, i-1)
 	quicksort(a, i+1, r)
 }
