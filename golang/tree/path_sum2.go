@@ -12,7 +12,7 @@ func pathSum(root *TreeNode, sum int) [][]int {
 	var dfs func(r *TreeNode, sum int, sol []int)
 
 	dfs = func(r *TreeNode, sum int, sol []int) {
-		if r == nil || sum < 0 {
+		if r == nil {
 			return
 		}
 
