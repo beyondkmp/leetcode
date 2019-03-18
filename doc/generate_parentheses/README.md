@@ -20,8 +20,6 @@ For example, given n = 3, a solution set is:
 
 使用回溯，列举出所有的可能，然后再判断是不是合法的parentheses, 不过会做非常多的无用工作.
 
-
-
 ## 回源加剪枝
 
 ![generateParenthesis](./generate_parenthese.png)
@@ -62,10 +60,10 @@ func generateParenthesis(n int) []string {
 func main() {
         fmt.Println(generateParenthesis(3))
 }
+```
 
 将上述代码简化如下:
 
-```
 
 ```go
 package main
