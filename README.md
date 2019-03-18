@@ -4,7 +4,7 @@
 
 | #  | Title                    | Solution                    | Difficulty |
 |----|--------------------------|-----------------------------|------------|
-| 22 | [generate Parentheses][] | [generate-parentheses-go][] | Medium     |
+| 22 | [generate Parentheses][] | [Go][generate-parentheses-go] | Medium     |
 
 
 [generate Parentheses]: https://leetcode.com/problems/generate-parentheses/ "generate Parentheses"
