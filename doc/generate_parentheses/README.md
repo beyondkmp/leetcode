@@ -110,3 +110,6 @@ func main() {
 }
 ```
 
+## 参考
+
+1. [Generate All Strings With n Matched Parentheses - Backtracking ("Generate Parentheses" on LeetCode)](https://www.youtube.com/watch?v=sz1qaKt0KGQ)
