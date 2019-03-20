@@ -13,7 +13,7 @@
 [generate-parentheses-doc]: https://github.com/beyondkmp/leetcode/tree/master/doc/generate_parentheses "generate-parentheses-doc"
 
 [Combination Sum IV]: https://leetcode.com/problems/combination-sum-iv/ "Combination Sum IV"
-[generate-parentheses-doc]: https://github.com/beyondkmp/leetcode/tree/master/doc/combination_sum "combination-sum-IV-doc"
+[combination-sum-IV-doc]: https://github.com/beyondkmp/leetcode/tree/master/doc/combination_sum "combination-sum-IV-doc"
 
 
 
