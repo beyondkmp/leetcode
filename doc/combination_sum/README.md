@@ -28,7 +28,7 @@ Therefore the output is 7.
 
 使用递归，如下图
 
-![combinationSum4](./combination_sum_5.png)
+![combinationSum4](./combination_sum_4.png)
 
 根据上图中的规律可以得到如下递归公式:
 
