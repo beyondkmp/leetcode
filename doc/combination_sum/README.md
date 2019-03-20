@@ -26,9 +26,11 @@ Therefore the output is 7.
 
 ## 暴力法
 
-使用递归，如下图，根据图中的规律可以得到递归公式是
+使用递归，如下图
 
 ![combinationSum4](./combination_sum_5.png)
+
+根据上图中的规律可以得到如下递归公式:
 
 ```
 F(target) =  F(target-nums[0]) + F(target- num[1]) + ... + F(target - nums[len(nums)-1])
@@ -62,12 +64,11 @@ func main() {
         fmt.Println(combinationSum4(nums, target))
 
 }
-
 ```
 
 ## 动态规划
 
-从上图中的可以看到非常多的重复的子问题，比如 combinationSum4(nums, 2), 这样就被重复计算了几次。我们可以从下往上计算，每次计算出来的结果都保存起来，这样就不用重复计算。具体代码如下:
+从上图中的可以看到非常多的重复的子问题，比如 combinationSum4(nums, 2), 就被重复计算了几次。我们可以从下往上计算，每次计算出来的结果都保存起来，这样就不用重复计算。具体代码如下:
 
 ```go
 
