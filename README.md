@@ -2,10 +2,10 @@
 
 ## backtracking
 
-| #   | Title                    | Solution                                                       | Difficulty |
-|-----|--------------------------|----------------------------------------------------------------|------------|
-| 22  | [generate Parentheses][] | [Go][generate-parentheses-go], [Doc][generate-parentheses-doc] | Medium     |
-| 377 | [Combination Sum IV][]   | [Doc][combination-sum-IV-doc]                                  | Medium     |
+| #   | Title                    | Solution                                                       | Difficulty | Relate Topic        |
+|-----|--------------------------|----------------------------------------------------------------|------------|---------------------|
+| 22  | [generate Parentheses][] | [Go][generate-parentheses-go], [Doc][generate-parentheses-doc] | Medium     | Backtracking        |
+| 377 | [Combination Sum IV][]   | [Doc][combination-sum-IV-doc]                                  | Medium     | Dynamic Programming |
 
 
 [generate Parentheses]: https://leetcode.com/problems/generate-parentheses/ "generate Parentheses"
