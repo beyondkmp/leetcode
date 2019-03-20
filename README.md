@@ -1,7 +1,5 @@
 # Algorithm
 
-## backtracking
-
 | #   | Title                    | Solution                                                       | Difficulty | Relate Topic        |
 |-----|--------------------------|----------------------------------------------------------------|------------|---------------------|
 | 22  | [generate Parentheses][] | [Go][generate-parentheses-go], [Doc][generate-parentheses-doc] | Medium     | Backtracking        |
