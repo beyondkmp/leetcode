@@ -8,6 +8,7 @@ fn largest_number(nums: Vec<i32>) -> String {
 
     tmp.iter().map(ToString::to_string).collect()
 }
+
 fn main() {
     let v = vec![10, 2];
     println!("the result is {}", largest_number(v));
