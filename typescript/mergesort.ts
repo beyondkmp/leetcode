@@ -1,6 +1,7 @@
-function sortArray(unorders: number[]): number[] {
-  const aux: number[] = [...unorders];
-  const merge = (nums: number[], lo: number, mid: number, hi: number) => {
+function sortArray(nums: number[]): number[] {
+  const aux: number[] = new Array<number>(nums.length);
+
+  const merge = (lo: number, mid: number, hi: number) => {
     let i = lo;
     let j = mid + 1;
     for (let k = lo; k <= hi; k++) {
@@ -21,17 +22,17 @@ function sortArray(unorders: number[]): number[] {
   }
 
 
-  const sort = (nums: number[], lo: number, hi: number) => {
+  const sort = (lo: number, hi: number) => {
     if (hi <= lo) {
       return;
     }
-    const mid:number = lo + Math.trunc((hi - lo) / 2);
-    sort(nums, lo, mid);
-    sort(nums, mid + 1, hi);
-    merge(nums, lo, mid, hi);
+    const mid: number = lo + Math.trunc((hi - lo) / 2);
+    sort(lo, mid);
+    sort(mid + 1, hi);
+    merge(lo, mid, hi);
   }
-  sort(unorders, 0, unorders.length - 1);
-  return unorders;
+  sort(0, nums.length - 1);
+  return nums;
 };
 
-console.log(sortArray([1, 9, 8, 7, 6 , 0, 0, 1]));
+console.log(sortArray([1, 9, 8, 7, 6, 0, 0, 1]));
