@@ -1,19 +1,14 @@
 function groupAnagrams(strs: string[]): string[][] {
   const dicts: Map<string, string[]> = new Map();
   strs.forEach(str => {
-    const sortedStr = Array.from(str).sort().join('');
+    const sortedStr = str.split("").sort().join('');
     if (!dicts.has(sortedStr)) {
       dicts.set(sortedStr, []);
     }
-
-    dicts.set(sortedStr, [...dicts.get(sortedStr) || [], str]);
+    dicts.set(sortedStr, [...dicts.get(sortedStr), str]);
   })
 
-  const result: string[][] = [];
-  for (const v of dicts.values()) {
-    result.push(v);
-  }
-  return result;
+  return [...dicts.values()]
 };
 
 console.log(groupAnagrams([""]));
